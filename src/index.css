@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — extracted from the Worketyamo mockups */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream-50: #fefcf9;
+  --color-cream-100: #fdf6ee;
+  --color-cream-200: #faf3ea;
+  --color-cream-300: #f5ebde;
+  --color-cream-400: #ede0c8;
+
+  --color-forest-50: #e8f3ec;
+  --color-forest-100: #c6e2cf;
+  --color-forest-200: #94c8a7;
+  --color-forest-300: #5da878;
+  --color-forest-400: #2f8a54;
+  --color-forest-500: #1f7a45;
+  --color-forest-600: #186838;
+  --color-forest-700: #14542e;
+  --color-forest-800: #103f23;
+  --color-forest-900: #0b2c19;
+
+  --color-amber-brand-50: #fff8e6;
+  --color-amber-brand-100: #ffefc2;
+  --color-amber-brand-200: #ffdd85;
+  --color-amber-brand-300: #f9c94f;
+  --color-amber-brand-400: #f0b429;
+  --color-amber-brand-500: #dc9f1e;
+
+  --color-ink-900: #1c1c1a;
+  --color-ink-700: #3a3a35;
+  --color-ink-500: #6b6a63;
+  --color-ink-300: #a6a49a;
+
+  --animate-fade-in: fade-in 0.5s ease-out both;
+  --animate-fade-in-up: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-scale-in: scale-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-in-right: slide-in-right 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-in-left: slide-in-left 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes slide-in-right {
+    from { opacity: 0; transform: translateX(16px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-16px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream-200 text-ink-900 antialiased;
+    font-family: var(--font-sans);
+  }
+  ::selection {
+    @apply bg-forest-200 text-forest-900;
+  }
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-forest-200);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-forest-300);
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
