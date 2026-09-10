@@ -1,21 +1,17 @@
 import { useState } from "react";
-import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
 import AdminSidebar from "./AdminSidebar";
+import AdminTopbar from "./AdminTopbar";
 
-export default function AdminLayout() {
-  const { isAuthenticated } = useAuth();
-  const location = useLocation();
+// Plain composition component (props + local useState only — no Context,
+// no useOutletContext). Each admin page renders its content as children and
+// gets the sidebar/topbar/mobile-drawer chrome around it for free.
+export default function AdminPageShell({ title, subtitle, admin, children }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
-
-  if (!isAuthenticated) {
-    return <Navigate to="/admin/login" state={{ from: location }} replace />;
-  }
 
   return (
     <div className="flex min-h-screen bg-cream-200">
       <div className="hidden lg:block">
-        <AdminSidebar />
+        <AdminSidebar admin={admin} />
       </div>
 
       {drawerOpen && (
@@ -25,13 +21,14 @@ export default function AdminLayout() {
             onClick={() => setDrawerOpen(false)}
           />
           <div className="relative animate-slide-in-left">
-            <AdminSidebar onClose={() => setDrawerOpen(false)} />
+            <AdminSidebar admin={admin} onClose={() => setDrawerOpen(false)} />
           </div>
         </div>
       )}
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <Outlet context={{ openDrawer: () => setDrawerOpen(true) }} />
+        <AdminTopbar title={title} subtitle={subtitle} onMenuClick={() => setDrawerOpen(true)} />
+        <div className="flex-1 px-4 py-6 sm:px-6 lg:px-8">{children}</div>
       </div>
     </div>
   );

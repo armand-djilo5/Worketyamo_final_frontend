@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import { useOutletContext } from "react-router-dom";
-import {Users,CheckCircle2,Briefcase,Star} from "lucide-react";
+import { Users,CheckCircle2,Briefcase,Star,} from "lucide-react";
 import {ResponsiveContainer,AreaChart,Area,XAxis,YAxis,CartesianGrid,Tooltip,PieChart,Pie,Cell,Legend,} from "recharts";
 import { API_BASE_URL } from "../../config/env";
 import { useAuthorizedRequest } from "../../hooks/useAuthorizedRequest";
-import AdminTopbar from "../../components/admin/AdminTopbar";
+import { useRequireAdminAuth } from "../../hooks/useRequireAdminAuth";
+import AdminPageShell from "../../components/admin/AdminPageShell";
 import StatCard from "../../components/admin/StatCard";
 import Spinner from "../../components/shared/Spinner";
 import { STATUS_LABELS, TYPE_LABELS } from "../../utils/labels";
@@ -22,7 +22,7 @@ const TYPE_COLORS = {
 };
 
 export default function StatsPage() {
-  const { openDrawer } = useOutletContext();
+  const { admin, ready } = useRequireAdminAuth();
   const authorizedRequest = useAuthorizedRequest();
 
   const [stats, setStats] = useState(null);
@@ -31,6 +31,7 @@ export default function StatsPage() {
 
   // Routes consumed here: GET /api/stats and GET /api/history
   useEffect(() => {
+    if (!ready) return;
     let cancelled = false;
 
     async function fetchStats() {
@@ -56,7 +57,7 @@ export default function StatsPage() {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [ready]);
 
   const historyData = useMemo(
     () =>
@@ -87,15 +88,14 @@ export default function StatsPage() {
     [stats]
   );
 
-  return (
-    <>
-      <AdminTopbar
-        title="Statistiques"
-        subtitle="Aperçu général et évolution des performances"
-        onMenuClick={openDrawer}
-      />
+  if (!ready) return <Spinner label="Vérification de la session..." full />;
 
-      <div className="flex-1 px-4 py-6 sm:px-6 lg:px-8">
+  return (
+    <AdminPageShell
+      title="Statistiques"
+      subtitle="Aperçu général et évolution des performances"
+      admin={admin}
+    >
         {loading ? (
           <Spinner label="Chargement des statistiques..." full />
         ) : (
@@ -188,8 +188,7 @@ export default function StatsPage() {
             </div>
           </>
         )}
-      </div>
-    </>
+    </AdminPageShell>
   );
 }
 

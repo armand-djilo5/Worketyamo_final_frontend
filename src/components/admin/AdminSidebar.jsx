@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import {LayoutDashboard,Briefcase,FileText,BarChart3,LogOut,X,} from "lucide-react";
+import axios from "axios";
+import {LayoutDashboard,Briefcase,FileText,BarChart3,LogOut,X,Loader2,} from "lucide-react";
 import Logo from "../shared/Logo";
-import { useAuth } from "../../context/AuthContext";
-import { useToast } from "../../context/ToastContext";
+import { API_BASE_URL } from "../../config/env";
+import { getSession, clearSession } from "../../utils/authStorage";
 
 const links = [
   { to: "/admin", label: "Vue d'ensemble", icon: LayoutDashboard, end: true },
@@ -11,15 +13,27 @@ const links = [
   { to: "/admin/statistiques", label: "Statistiques", icon: BarChart3 },
 ];
 
-export default function AdminSidebar({ onClose }) {
-  const { logout, admin } = useAuth();
+export default function AdminSidebar({ admin, onClose }) {
   const navigate = useNavigate();
-  const toast = useToast();
+  const [loggingOut, setLoggingOut] = useState(false);
 
+  // Route consumed here: POST /api/admin/logout
   async function handleLogout() {
-    await logout();
-    toast.success("Vous avez été déconnecté.");
-    navigate("/admin/login");
+    setLoggingOut(true);
+    const session = getSession();
+    try {
+      if (session?.refreshToken) {
+        await axios.post(`${API_BASE_URL}/admin/logout`, {
+          refreshToken: session.refreshToken,
+        });
+      }
+    } catch {
+      // Session is cleared locally regardless of the server response.
+    } finally {
+      clearSession();
+      setLoggingOut(false);
+      navigate("/admin/login", { replace: true });
+    }
   }
 
   return (
@@ -71,9 +85,14 @@ export default function AdminSidebar({ onClose }) {
         )}
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium text-ink-500 transition-smooth hover:bg-red-50 hover:text-red-600"
+          disabled={loggingOut}
+          className="flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium text-ink-500 transition-smooth hover:bg-red-50 hover:text-red-600 disabled:opacity-60"
         >
-          <LogOut className="h-4.5 w-4.5" />
+          {loggingOut ? (
+            <Loader2 className="h-4.5 w-4.5 animate-spin" />
+          ) : (
+            <LogOut className="h-4.5 w-4.5" />
+          )}
           Déconnexion
         </button>
       </div>

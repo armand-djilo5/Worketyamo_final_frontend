@@ -19,31 +19,35 @@ export default function CatalogPage() {
 
   // Route consumed here: GET /api/offers
   useEffect(() => {
-    let cancelled = false;
+  let cancelled = false;
 
-    async function fetchOffers() {
-      setLoading(true);
-      setError(null);
-      try {
-        const response = await axios.get(`${API_BASE_URL}/offers`);
-        if (!cancelled) setOffers(response.data);
-      } catch (err) {
-        if (cancelled) return;
-        if (err?.response?.status === 404) {
-          setOffers([]);
-        } else {
-          setError("Impossible de charger les offres pour le moment.");
-        }
-      } finally {
-        if (!cancelled) setLoading(false);
+  async function fetchOffers() {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await axios.get(`${API_BASE_URL}/offers`);
+      const payload = Array.isArray(response.data)
+        ? response.data
+        : response.data?.offers ?? response.data?.data ?? [];
+
+      if (!cancelled) setOffers(payload);
+    } catch (err) {
+      if (cancelled) return;
+      if (err?.response?.status === 404) {
+        setOffers([]);
+      } else {
+        setError("Impossible de charger les offres pour le moment.");
       }
+    } finally {
+      if (!cancelled) setLoading(false);
     }
+  }
 
-    fetchOffers();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  fetchOffers();
+  return () => {
+    cancelled = true;
+  };
+}, []);
 
   const domaines = useMemo(() => {
     const set = new Set(offers.map((o) => o.domaine).filter(Boolean));

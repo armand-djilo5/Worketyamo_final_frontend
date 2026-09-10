@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 import { Mail, Lock, Eye, EyeOff, AlertCircle, Loader2, ArrowRight } from "lucide-react";
-import { useAuth } from "../../context/AuthContext";
-import { useToast } from "../../context/ToastContext";
+import { API_BASE_URL } from "../../config/env";
+import { getSession, setSession } from "../../utils/authStorage";
+import { useToast } from "../../hooks/useToast";
+import ToastStack from "../../components/shared/ToastStack";
 
 export default function LoginPage() {
-  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const toast = useToast();
@@ -16,20 +18,32 @@ export default function LoginPage() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  if (isAuthenticated) {
-    navigate(location.state?.from?.pathname || "/admin", { replace: true });
-  }
+  // Already signed in? Skip straight past the login form. Also surface a
+  // toast if we just came back from a successful signup.
+  useEffect(() => {
+    if (getSession()?.token) {
+      navigate(location.state?.from?.pathname || "/admin", { replace: true });
+      return;
+    }
+    if (location.state?.justSignedUp) {
+      toast.success("Compte administrateur créé. Vous pouvez vous connecter.");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
+  // Route consumed here: POST /api/admin/login
   async function handleSubmit(e) {
     e.preventDefault();
     setError(null);
     setLoading(true);
     try {
-      await login(email, password);
+      const res = await axios.post(`${API_BASE_URL}/admin/login`, { email, password });
+      const { token, refreshToken, admin } = res.data;
+      setSession({ token, refreshToken, admin });
       toast.success("Connexion réussie, bienvenue !");
       navigate(location.state?.from?.pathname || "/admin", { replace: true });
     } catch (err) {
-      const msg = err?.response?.data?.message || "Identifiants invalides";
+      const msg = err?.response?.data?.message;
       setError(typeof msg === "string" ? msg : "Identifiants invalides");
     } finally {
       setLoading(false);
@@ -127,6 +141,8 @@ export default function LoginPage() {
           </Link>
         </p>
       </div>
+
+      <ToastStack toasts={toast.toasts} onDismiss={toast.dismiss} />
     </div>
   );
 }

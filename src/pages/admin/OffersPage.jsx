@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Plus, Pencil, Trash2, Briefcase } from "lucide-react";
 import { API_BASE_URL } from "../../config/env";
 import { useAuthorizedRequest } from "../../hooks/useAuthorizedRequest";
-import { useToast } from "../../context/ToastContext";
-import AdminTopbar from "../../components/admin/AdminTopbar";
+import { useRequireAdminAuth } from "../../hooks/useRequireAdminAuth";
+import { useToast } from "../../hooks/useToast";
+import AdminPageShell from "../../components/admin/AdminPageShell";
+import ToastStack from "../../components/shared/ToastStack";
 import Spinner from "../../components/shared/Spinner";
 import EmptyState from "../../components/shared/EmptyState";
 import Badge from "../../components/shared/Badge";
@@ -13,7 +15,7 @@ import { TYPE_LABELS, TYPE_BADGE_CLASSES } from "../../utils/labels";
 import { formatShortDate } from "../../utils/formatDate";
 
 export default function OffersPage() {
-  const { openDrawer } = useOutletContext();
+  const { admin, ready } = useRequireAdminAuth();
   const authorizedRequest = useAuthorizedRequest();
   const toast = useToast();
 
@@ -25,6 +27,7 @@ export default function OffersPage() {
 
   // Route consumed here: GET /api/admin/offers
   useEffect(() => {
+    if (!ready) return;
     let cancelled = false;
 
     async function fetchOffers() {
@@ -47,7 +50,7 @@ export default function OffersPage() {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [ready]);
 
   // Route consumed here: PUT /api/offers/:id (toggling isActive)
   async function handleToggleActive(offer) {
@@ -90,9 +93,10 @@ export default function OffersPage() {
 
   return (
     <>
-      <AdminTopbar title="Offres" subtitle="Gérez les offres de stage et de formation" onMenuClick={openDrawer} />
-
-      <div className="flex-1 px-4 py-6 sm:px-6 lg:px-8">
+      {!ready ? (
+        <Spinner label="Vérification de la session..." full />
+      ) : (
+        <AdminPageShell title="Offres" subtitle="Gérez les offres de stage et de formation" admin={admin}>
         <div className="flex justify-end">
           <Link
             to="/admin/offres/nouvelle"
@@ -194,17 +198,20 @@ export default function OffersPage() {
             </div>
           )}
         </div>
-      </div>
 
-      <ConfirmDialog
-        open={Boolean(deleteTarget)}
-        title="Supprimer cette offre ?"
-        description={`"${deleteTarget?.title}" et toutes ses candidatures associées seront définitivement supprimées.`}
-        confirmLabel="Supprimer"
-        loading={deleting}
-        onConfirm={handleDelete}
-        onCancel={() => setDeleteTarget(null)}
-      />
+        <ConfirmDialog
+          open={Boolean(deleteTarget)}
+          title="Supprimer cette offre ?"
+          description={`"${deleteTarget?.title}" et toutes ses candidatures associées seront définitivement supprimées.`}
+          confirmLabel="Supprimer"
+          loading={deleting}
+          onConfirm={handleDelete}
+          onCancel={() => setDeleteTarget(null)}
+        />
+
+        <ToastStack toasts={toast.toasts} onDismiss={toast.dismiss} />
+        </AdminPageShell>
+      )}
     </>
   );
 }

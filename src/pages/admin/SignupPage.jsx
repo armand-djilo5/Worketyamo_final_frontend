@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import { User, Mail, Lock, Phone, AlertCircle, Loader2, ArrowRight } from "lucide-react";
-import { useAuth } from "../../context/AuthContext";
-import { useToast } from "../../context/ToastContext";
+import { API_BASE_URL } from "../../config/env";
 
 export default function SignupPage() {
-  const { signup } = useAuth();
   const navigate = useNavigate();
-  const toast = useToast();
 
   const [form, setForm] = useState({ fullName: "", email: "", phone: "", password: "" });
   const [error, setError] = useState(null);
@@ -17,17 +15,23 @@ export default function SignupPage() {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
+  // Route consumed here: POST /api/admin/signup
   async function handleSubmit(e) {
     e.preventDefault();
     setError(null);
     setLoading(true);
     try {
-      await signup({ ...form, role: "ADMIN" });
-      toast.success("Compte administrateur créé. Vous pouvez vous connecter.");
-      navigate("/admin/login");
+      await axios.post(`${API_BASE_URL}/admin/signup`, { ...form, role: "ADMIN" });
+      navigate("/admin/login", { state: { justSignedUp: true } });
     } catch (err) {
       const msg = err?.response?.data?.message;
-      setError(typeof msg === "string" ? msg : "Impossible de créer le compte.");
+      setError(
+        Array.isArray(msg)
+          ? msg.map((m) => m.message).join(" ")
+          : typeof msg === "string"
+          ? msg
+          : "Impossible de créer le compte."
+      );
     } finally {
       setLoading(false);
     }
