@@ -43,8 +43,14 @@ export default function LoginPage() {
       toast.success("Connexion réussie, bienvenue !");
       navigate(location.state?.from?.pathname || "/admin", { replace: true });
     } catch (err) {
-      const msg = err?.response?.data?.message;
-      setError(typeof msg === "string" ? msg : "Identifiants invalides");
+      const msg = err?.response?.data?.message || err?.response?.data?.error;
+      if (typeof msg === "string" && msg.trim()) {
+        setError(msg);
+      } else if (err?.code === "ERR_NETWORK") {
+        setError("Impossible de joindre l’API. Vérifiez le serveur backend.");
+      } else {
+        setError("Identifiants invalides");
+      }
     } finally {
       setLoading(false);
     }
