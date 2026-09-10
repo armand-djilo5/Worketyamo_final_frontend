@@ -18,7 +18,7 @@ export default function OfferCard({ offer, index = 0 }) {
         </Badge>
       </div>
 
-      <h3 className="mt-3.5 text-lg font-semibold leading-snug text-ink-900 group-hover:text-forest-600 transition-smooth">
+      <h3 className="mt-3.5 text-lg font-semibold leading-snug text-ink-900 group-hover:text-amber-brand-500 transition-smooth">
         {offer.title}
       </h3>
 
@@ -43,7 +43,7 @@ export default function OfferCard({ offer, index = 0 }) {
         <span className="text-xs text-ink-500">
           {offer.startDate ? `Débute le ${formatShortDate(offer.startDate)}` : "Dates flexibles"}
         </span>
-        <span className="inline-flex items-center gap-1 text-sm font-semibold text-forest-600">
+        <span className="inline-flex items-center gap-1 text-sm font-semibold text-amber-brand-500">
           Voir l'offre
           <ArrowRight className="h-3.5 w-3.5 transition-smooth group-hover:translate-x-0.5" />
         </span>

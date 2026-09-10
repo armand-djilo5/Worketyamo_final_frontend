@@ -22,8 +22,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `rounded-lg px-4 py-2 text-sm font-medium transition-smooth ${
                   isActive
-                    ? "text-forest-600"
-                    : "text-ink-700 hover:text-forest-600"
+                    ? "text-amber-brand-500"
+                    : "text-ink-700 hover:text-amber-brand-500"
                 }`
               }
             >
@@ -32,15 +32,15 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        {/* <div className="hidden items-center gap-3 md:flex">
           <NavLink
             to="/admin/login"
-            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-ink-500 hover:text-forest-600 transition-smooth"
+            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-ink-500 hover:text-amber-brand-500 transition-smooth"
           >
             <ShieldCheck className="h-4 w-4" />
             Espace admin
           </NavLink>
-        </div>
+        </div> */}
 
         <button
           onClick={() => setOpen((v) => !v)}

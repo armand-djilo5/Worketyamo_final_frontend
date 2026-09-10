@@ -1,7 +1,7 @@
 export default function StatCard({ icon: Icon, label, value, hint, accent = "forest", index = 0 }) {
   const accentClasses = {
     forest: "bg-forest-50 text-forest-600",
-    amber: "bg-amber-brand-100 text-amber-brand-500",
+    amber: "bg-sky-100 text-sky-700",
   };
 
   return (

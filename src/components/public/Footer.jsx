@@ -9,13 +9,13 @@ export default function Footer() {
           © {new Date().getFullYear()} Worketyamo. Tous droits réservés.
         </p>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-500">
-          <span className="cursor-default hover:text-forest-600 transition-smooth">
+          <span className="cursor-default hover:text-amber-brand-500 transition-smooth">
             Politique de confidentialité
           </span>
-          <span className="cursor-default hover:text-forest-600 transition-smooth">
+          <span className="cursor-default hover:text-amber-brand-500 transition-smooth">
             Conditions d'utilisation
           </span>
-          <span className="cursor-default hover:text-forest-600 transition-smooth">
+          <span className="cursor-default hover:text-amber-brand-500 transition-smooth">
             Contact
           </span>
         </div>

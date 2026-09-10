@@ -38,7 +38,7 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-forest-600 px-4 py-12">
+    <div className="flex min-h-screen items-center justify-center bg-amber-brand-500 px-4 py-12">
       <div className="w-full max-w-sm">
         <div className="animate-fade-in-up text-center">
           <h1 className="font-poppins text-3xl font-extrabold text-white">Worketyamo</h1>
@@ -94,7 +94,7 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={loading}
-              className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-forest-500 px-4 py-3 text-sm font-semibold text-white shadow-sm shadow-forest-900/20 transition-smooth hover:bg-forest-600 disabled:opacity-70"
+              className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-amber-brand-500 px-4 py-3 text-sm font-semibold text-white shadow-sm shadow-ink-900/20 transition-smooth hover:bg-amber-brand-400 disabled:opacity-70"
             >
               {loading ? (
                 <>

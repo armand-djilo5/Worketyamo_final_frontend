@@ -100,7 +100,7 @@ export default function OffersPage() {
         <div className="flex justify-end">
           <Link
             to="/admin/offres/nouvelle"
-            className="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-smooth hover:bg-forest-600"
+            className="inline-flex items-center gap-2 rounded-xl bg-amber-brand-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-smooth hover:bg-amber-brand-400"
           >
             <Plus className="h-4 w-4" />
             Nouvelle offre
@@ -118,7 +118,7 @@ export default function OffersPage() {
               action={
                 <Link
                   to="/admin/offres/nouvelle"
-                  className="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-4 py-2.5 text-sm font-semibold text-white transition-smooth hover:bg-forest-600"
+                  className="inline-flex items-center gap-2 rounded-xl bg-amber-brand-500 px-4 py-2.5 text-sm font-semibold text-white transition-smooth hover:bg-amber-brand-400"
                 >
                   <Plus className="h-4 w-4" />
                   Créer une offre

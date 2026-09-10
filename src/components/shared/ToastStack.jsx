@@ -3,7 +3,7 @@ import { CheckCircle2, XCircle, Info, X } from "lucide-react";
 const ICONS = {
   success: <CheckCircle2 className="h-5 w-5 text-forest-500 shrink-0" />,
   error: <XCircle className="h-5 w-5 text-red-500 shrink-0" />,
-  info: <Info className="h-5 w-5 text-amber-brand-500 shrink-0" />,
+  info: <Info className="h-5 w-5 text-sky-500 shrink-0" />,
 };
 
 export default function ToastStack({ toasts, onDismiss }) {

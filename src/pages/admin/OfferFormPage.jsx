@@ -143,7 +143,7 @@ export default function OfferFormPage() {
     >
         <Link
           to="/admin/offres"
-          className="inline-flex items-center gap-1.5 text-sm text-ink-500 hover:text-forest-600 transition-smooth"
+          className="inline-flex items-center gap-1.5 text-sm text-ink-500 hover:text-amber-brand-500 transition-smooth"
         >
           <ArrowLeft className="h-4 w-4" />
           Retour aux offres
@@ -274,7 +274,7 @@ export default function OfferFormPage() {
               <button
                 type="submit"
                 disabled={saving}
-                className="inline-flex items-center gap-2 rounded-xl bg-forest-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-smooth hover:bg-forest-600 disabled:opacity-70"
+                className="inline-flex items-center gap-2 rounded-xl bg-amber-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-smooth hover:bg-amber-brand-400 disabled:opacity-70"
               >
                 {saving ? (
                   <>

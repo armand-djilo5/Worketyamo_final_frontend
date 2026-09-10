@@ -4,7 +4,7 @@ export const TYPE_LABELS = {
 };
 
 export const TYPE_BADGE_CLASSES = {
-  STAGE: "bg-amber-brand-200 text-amber-brand-500",
+  STAGE: "bg-amber-brand-100 text-amber-brand-500",
   FORMATION: "bg-forest-100 text-forest-700",
 };
 
@@ -15,7 +15,7 @@ export const STATUS_LABELS = {
 };
 
 export const STATUS_BADGE_CLASSES = {
-  EN_ATTENTE: "bg-amber-brand-100 text-amber-brand-500",
+  EN_ATTENTE: "bg-sky-100 text-sky-700",
   ACCEPTEE: "bg-forest-100 text-forest-700",
   REFUSEE: "bg-red-100 text-red-600",
 };

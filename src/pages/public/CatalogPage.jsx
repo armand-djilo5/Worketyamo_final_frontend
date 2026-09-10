@@ -160,7 +160,7 @@ export default function CatalogPage() {
               <div className="mt-10 flex justify-center">
                 <button
                   onClick={() => setVisibleCount((v) => v + PAGE_SIZE)}
-                  className="rounded-full border border-ink-900/10 bg-white px-6 py-2.5 text-sm font-semibold text-ink-700 shadow-sm transition-smooth hover:border-forest-300 hover:text-forest-600"
+                  className="rounded-full border border-ink-900/10 bg-white px-6 py-2.5 text-sm font-semibold text-ink-700 shadow-sm transition-smooth hover:border-amber-brand-300 hover:text-amber-brand-500"
                 >
                   Charger plus d'offres
                 </button>

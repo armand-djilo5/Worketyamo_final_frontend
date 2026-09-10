@@ -72,7 +72,7 @@ export default function OfferDetailPage() {
           action={
             <Link
               to="/"
-              className="inline-flex items-center gap-2 rounded-lg bg-forest-500 px-4 py-2 text-sm font-semibold text-white transition-smooth hover:bg-forest-600"
+              className="inline-flex items-center gap-2 rounded-lg bg-amber-brand-500 px-4 py-2 text-sm font-semibold text-white transition-smooth hover:bg-amber-brand-400"
             >
               <ArrowLeft className="h-4 w-4" />
               Retour au catalogue
@@ -88,7 +88,7 @@ export default function OfferDetailPage() {
       <div className="animate-fade-in flex items-center justify-between text-sm">
         <Link
           to="/"
-          className="inline-flex items-center gap-1.5 text-ink-500 transition-smooth hover:text-forest-600"
+          className="inline-flex items-center gap-1.5 text-ink-500 transition-smooth hover:text-amber-brand-500"
         >
           <ArrowLeft className="h-4 w-4" />
           Retour au catalogue
@@ -109,7 +109,7 @@ export default function OfferDetailPage() {
         <Link
           to={`/offres/${offer.id}/postuler`}
           state={{ offer }}
-          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-forest-500 px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-forest-900/20 transition-smooth hover:bg-forest-600 hover:shadow-md"
+          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-brand-500 px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-ink-900/20 transition-smooth hover:bg-amber-brand-400 hover:shadow-md"
         >
           Postuler à cette offre
           <ArrowLeft className="h-4 w-4 rotate-180" />
@@ -134,7 +134,7 @@ export default function OfferDetailPage() {
         style={{ animationDelay: "140ms" }}
       >
         <h2 className="flex items-center gap-2 text-lg font-semibold text-ink-900">
-          <Info className="h-5 w-5 text-forest-500" />
+          <Info className="h-5 w-5 text-sky-500" />
           À propos de l'offre
         </h2>
         <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-ink-700">

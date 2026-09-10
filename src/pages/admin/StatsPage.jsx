@@ -11,13 +11,13 @@ import { STATUS_LABELS, TYPE_LABELS } from "../../utils/labels";
 import { monthLabel } from "../../utils/formatDate";
 
 const STATUS_COLORS = {
-  EN_ATTENTE: "#f0b429",
+  EN_ATTENTE: "#0ea5e9",
   ACCEPTEE: "#1f7a45",
   REFUSEE: "#e0645a",
 };
 
 const TYPE_COLORS = {
-  STAGE: "#f0b429",
+  STAGE: "#f2742e",
   FORMATION: "#1f7a45",
 };
 
@@ -153,13 +153,13 @@ export default function StatsPage() {
                           <stop offset="95%" stopColor="#1f7a45" stopOpacity={0} />
                         </linearGradient>
                       </defs>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#1c1c1a10" vertical={false} />
+                      <CartesianGrid strokeDasharray="3 3" stroke="#0a0a0a1a" vertical={false} />
                       <XAxis dataKey="label" tick={{ fontSize: 12, fill: "#6b6a63" }} axisLine={false} tickLine={false} />
                       <YAxis tick={{ fontSize: 12, fill: "#6b6a63" }} axisLine={false} tickLine={false} allowDecimals={false} />
                       <Tooltip
                         contentStyle={{
                           borderRadius: 12,
-                          border: "1px solid #1c1c1a10",
+                          border: "1px solid #0a0a0a1a",
                           fontSize: 13,
                           fontFamily: "Poppins",
                         }}
@@ -230,7 +230,7 @@ function PieBlock({ data, colors }) {
         <Tooltip
           contentStyle={{
             borderRadius: 12,
-            border: "1px solid #1c1c1a10",
+            border: "1px solid #0a0a0a1a",
             fontSize: 13,
             fontFamily: "Poppins",
           }}

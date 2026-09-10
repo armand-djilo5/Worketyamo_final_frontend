@@ -322,14 +322,14 @@ export default function RequestsPage() {
                   <div className="mt-2 flex flex-col gap-1.5">
                     <a
                       href={`mailto:${selected.email}`}
-                      className="inline-flex items-center gap-2 text-sm text-forest-600 hover:underline"
+                      className="inline-flex items-center gap-2 text-sm text-amber-brand-500 hover:underline"
                     >
                       <Mail className="h-4 w-4" />
                       {selected.email}
                     </a>
                     <a
                       href={`tel:${selected.phone}`}
-                      className="inline-flex items-center gap-2 text-sm text-forest-600 hover:underline"
+                      className="inline-flex items-center gap-2 text-sm text-amber-brand-500 hover:underline"
                     >
                       <Phone className="h-4 w-4" />
                       {selected.phone}
@@ -339,7 +339,7 @@ export default function RequestsPage() {
                         href={selected.whatsappLink}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-forest-600 hover:underline"
+                        className="inline-flex items-center gap-2 text-sm text-amber-brand-500 hover:underline"
                       >
                         <MessageCircle className="h-4 w-4" />
                         Contacter sur WhatsApp
@@ -362,7 +362,7 @@ export default function RequestsPage() {
                       href={selected.cvUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-1.5 flex items-center gap-2.5 rounded-xl border border-ink-900/10 px-3.5 py-2.5 text-sm text-ink-700 hover:border-forest-300 hover:text-forest-600 transition-smooth"
+                      className="mt-1.5 flex items-center gap-2.5 rounded-xl border border-ink-900/10 px-3.5 py-2.5 text-sm text-ink-700 hover:border-amber-brand-300 hover:text-amber-brand-500 transition-smooth"
                     >
                       <FileText className="h-4 w-4 shrink-0" />
                       Voir le CV
@@ -382,7 +382,7 @@ export default function RequestsPage() {
                   <button
                     onClick={() => handleStatusChange("ACCEPTEE")}
                     disabled={updatingStatus || selected.status === "ACCEPTEE"}
-                    className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-forest-500 px-3 py-2.5 text-sm font-semibold text-white transition-smooth hover:bg-forest-600 disabled:opacity-40"
+                    className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-amber-brand-500 px-3 py-2.5 text-sm font-semibold text-white transition-smooth hover:bg-amber-brand-400 disabled:opacity-40"
                   >
                     <Check className="h-4 w-4" />
                     Accepter

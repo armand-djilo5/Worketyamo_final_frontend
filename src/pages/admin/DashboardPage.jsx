@@ -86,7 +86,7 @@ export default function DashboardPage() {
                 <h2 className="text-base font-semibold text-ink-900">Candidatures récentes</h2>
                 <Link
                   to="/admin/candidatures"
-                  className="text-sm font-semibold text-forest-600 hover:text-forest-700 transition-smooth"
+                  className="text-sm font-semibold text-amber-brand-500 hover:text-amber-brand-400 transition-smooth"
                 >
                   Voir tout
                 </Link>
@@ -130,7 +130,7 @@ export default function DashboardPage() {
                             <Link
                               to="/admin/candidatures"
                               state={{ selectedId: r.id }}
-                              className="inline-flex text-ink-500 hover:text-forest-600 transition-smooth"
+                              className="inline-flex text-ink-500 hover:text-amber-brand-500 transition-smooth"
                             >
                               <Eye className="h-4 w-4" />
                             </Link>
@@ -169,14 +169,14 @@ export default function DashboardPage() {
                 <div className="mt-3 flex flex-col gap-3">
                   <Link
                     to="/admin/statistiques"
-                    className="flex items-center gap-2.5 text-sm text-ink-700 hover:text-forest-600 transition-smooth"
+                    className="flex items-center gap-2.5 text-sm text-ink-700 hover:text-amber-brand-500 transition-smooth"
                   >
                     <Settings className="h-4 w-4 text-ink-300" />
                     Voir les statistiques
                   </Link>
                   <Link
                     to="/admin/offres"
-                    className="flex items-center gap-2.5 text-sm text-ink-700 hover:text-forest-600 transition-smooth"
+                    className="flex items-center gap-2.5 text-sm text-ink-700 hover:text-amber-brand-500 transition-smooth"
                   >
                     <UserPlus className="h-4 w-4 text-ink-300" />
                     Gérer les offres

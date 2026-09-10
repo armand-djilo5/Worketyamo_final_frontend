@@ -15,7 +15,7 @@ export default function NotFoundPage() {
       </p>
       <Link
         to="/"
-        className="animate-fade-in-up mt-8 inline-flex items-center justify-center rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-smooth hover:bg-forest-600"
+        className="animate-fade-in-up mt-8 inline-flex items-center justify-center rounded-xl bg-amber-brand-500 px-6 py-3 text-sm font-semibold text-white transition-smooth hover:bg-amber-brand-400"
       >
         Retour à l'accueil
       </Link>

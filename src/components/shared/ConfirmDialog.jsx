@@ -35,7 +35,7 @@ export default function ConfirmDialog({open,title,description,confirmLabel = "Co
             onClick={onConfirm}
             disabled={loading}
             className={`rounded-lg px-4 py-2 text-sm font-semibold text-white transition-smooth disabled:opacity-60 ${
-              danger ? "bg-red-600 hover:bg-red-700" : "bg-forest-500 hover:bg-forest-600"
+              danger ? "bg-red-600 hover:bg-red-700" : "bg-amber-brand-500 hover:bg-amber-brand-400"
             }`}
           >
             {loading ? "Veuillez patienter…" : confirmLabel}

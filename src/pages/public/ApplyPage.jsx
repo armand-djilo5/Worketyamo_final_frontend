@@ -92,9 +92,7 @@ export default function ApplyPage() {
 
     setSubmitting(true);
     try {
-      await axios.post(`${API_BASE_URL}/requests`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      await axios.post(`${API_BASE_URL}/requests`, formData);
       setSubmitted(true);
       toast.success("Votre candidature a bien été envoyée !");
     } catch (err) {
@@ -124,7 +122,7 @@ export default function ApplyPage() {
         </p>
         <Link
           to="/"
-          className="animate-fade-in-up mt-8 inline-flex items-center justify-center rounded-xl bg-forest-500 px-6 py-3 text-sm font-semibold text-white transition-smooth hover:bg-forest-600"
+          className="animate-fade-in-up mt-8 inline-flex items-center justify-center rounded-xl bg-amber-brand-500 px-6 py-3 text-sm font-semibold text-white transition-smooth hover:bg-amber-brand-400"
         >
           Retour au catalogue
         </Link>
@@ -272,7 +270,7 @@ export default function ApplyPage() {
         <button
           type="submit"
           disabled={submitting}
-          className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-forest-500 px-5 py-3.5 text-sm font-semibold text-white shadow-sm shadow-forest-900/20 transition-smooth hover:bg-forest-600 disabled:opacity-70"
+          className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-amber-brand-500 px-5 py-3.5 text-sm font-semibold text-white shadow-sm shadow-ink-900/20 transition-smooth hover:bg-amber-brand-400 disabled:opacity-70"
         >
           {submitting ? (
             <>
