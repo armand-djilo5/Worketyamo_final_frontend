@@ -8,7 +8,7 @@ export default function Logo({ to = "/", subtitle, light = false }) {
           light ? "text-white" : "text-forest-600"
         }`}
       >
-        Worketyamo
+        <b className="text-blue-600">Worket</b> <b className="text-orange-600">Yamo</b>
       </span>
       {subtitle && (
         <p

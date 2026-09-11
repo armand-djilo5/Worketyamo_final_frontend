@@ -18,11 +18,7 @@ export default function OfferDetailPage() {
   const [loading, setLoading] = useState(!preloaded);
   const [error, setError] = useState(null);
 
-  // The backend's GET /api/offers/:id route requires an admin token, so a
-  // public visitor can't call it directly. We stay within the public part
-  // of the API by reusing GET /api/offers (which already returns full offer
-  // objects) and picking out the matching one — this only runs when the
-  // offer wasn't already passed along from the catalog page.
+
   useEffect(() => {
     if (preloaded) return;
     let cancelled = false;

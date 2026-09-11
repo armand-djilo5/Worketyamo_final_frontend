@@ -2,10 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { getSession } from "../utils/authStorage";
 
-// Every admin page calls this hook directly (no shared Context). It reads
-// the session from localStorage once on mount, redirects to /admin/login
-// when missing, and returns the admin/token so the page can make its own
-// axios calls.
+
 export function useRequireAdminAuth() {
   const navigate = useNavigate();
   const location = useLocation();

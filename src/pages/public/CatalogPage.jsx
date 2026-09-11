@@ -74,8 +74,8 @@ export default function CatalogPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <div className="animate-fade-in-up max-w-2xl">
-        <h1 className="text-3xl font-extrabold leading-tight text-ink-900 sm:text-4xl">
-          Trouvez le stage ou la formation qui vous correspond
+        <h1 className="text-3xl font-extrabold leading-tight  sm:text-4xl">
+          <b className="text-blue-600">Trouvez le stage ou la</b> <b className="text-orange-600">formation qui vous correspond</b>
         </h1>
         <p className="mt-3 text-base leading-relaxed text-ink-500">
           Découvrez des opportunités de croissance professionnelle adaptées à

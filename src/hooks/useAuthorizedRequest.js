@@ -4,11 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../config/env";
 import { getSession, setSession, clearSession } from "../utils/authStorage";
 
-// This hook does NOT define any backend routes and does NOT use React
-// Context. Each page still writes its own axios call with its own URL —
-// this only wraps that call so it carries the admin's bearer token (read
-// straight from localStorage) and transparently refreshes it once on a 401
-// via POST /api/admin/refresh, then retries the exact same request.
+
 export function useAuthorizedRequest() {
   const navigate = useNavigate();
 

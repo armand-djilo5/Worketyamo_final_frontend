@@ -14,27 +14,24 @@ import OfferFormPage from "./pages/admin/OfferFormPage";
 import RequestsPage from "./pages/admin/RequestsPage";
 import StatsPage from "./pages/admin/StatsPage";
 
-// No Context provider wraps the app anymore: the admin session lives in
-// localStorage (src/utils/authStorage.js) and each admin page guards itself
-// with the useRequireAdminAuth hook, so every route below is declared flat.
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Public site */}
+        // Public site 
         <Route element={<PublicLayout />}>
           <Route path="/" element={<CatalogPage />} />
           <Route path="/offres/:id" element={<OfferDetailPage />} />
         </Route>
 
-        {/* Full-screen application flow (no site navbar/footer) */}
+        //apply
         <Route path="/offres/:id/postuler" element={<ApplyPage />} />
 
-        {/* Admin auth */}
+        //auth
         <Route path="/admin/login" element={<LoginPage />} />
         <Route path="/admin/signup" element={<SignupPage />} />
 
-        {/* Admin area — each page checks its own session via useRequireAdminAuth */}
+        // admin dashboard
         <Route path="/admin" element={<DashboardPage />} />
         <Route path="/admin/offres" element={<OffersPage />} />
         <Route path="/admin/offres/nouvelle" element={<OfferFormPage />} />

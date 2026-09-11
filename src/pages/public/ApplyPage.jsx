@@ -134,8 +134,8 @@ export default function ApplyPage() {
     <div className="min-h-screen">
       <header className="border-b border-ink-900/5 bg-cream-100">
         <div className="mx-auto flex max-w-2xl items-center justify-between px-4 py-4 sm:px-6">
-          <span className="font-poppins text-lg font-extrabold text-forest-600">
-            Worketyamo
+          <span className="font-poppins text-lg font-extrabold ">
+            <b className="text-blue-600">Worket</b> <b className="text-orange-600">Yamo</b>
           </span>
           <Link
             to={offer ? `/offres/${id}` : "/"}

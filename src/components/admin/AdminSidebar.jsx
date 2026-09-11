@@ -28,7 +28,7 @@ export default function AdminSidebar({ admin, onClose }) {
         });
       }
     } catch {
-      // Session is cleared locally regardless of the server response.
+      //
     } finally {
       clearSession();
       setLoggingOut(false);
@@ -60,7 +60,7 @@ export default function AdminSidebar({ admin, onClose }) {
             className={({ isActive }) =>
               `flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-smooth ${
                 isActive
-                  ? "bg-amber-brand-400 text-white shadow-sm"
+                  ? "bg-amber-brand-300 text-ink-900 shadow-sm"
                   : "text-ink-700 hover:bg-ink-900/5"
               }`
             }

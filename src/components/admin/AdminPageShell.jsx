@@ -2,9 +2,6 @@ import { useState } from "react";
 import AdminSidebar from "./AdminSidebar";
 import AdminTopbar from "./AdminTopbar";
 
-// Plain composition component (props + local useState only — no Context,
-// no useOutletContext). Each admin page renders its content as children and
-// gets the sidebar/topbar/mobile-drawer chrome around it for free.
 export default function AdminPageShell({ title, subtitle, admin, children }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 

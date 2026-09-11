@@ -1,5 +1,3 @@
-// Plain storage helpers (no React Context). Every page that needs the admin
-// session reads/writes it directly through these functions.
 const STORAGE_KEY = "worketyamo_admin_session";
 
 export function getSession() {
@@ -15,8 +13,7 @@ export function setSession(session) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
   } catch {
-    // Storage might be unavailable (private mode, quota) — fail silently,
-    // the page-level auth check will simply redirect to /admin/login.
+    //
   }
 }
 

@@ -2,8 +2,7 @@ import { useState, useCallback, useRef } from "react";
 
 let idCounter = 0;
 
-// Not a Context: each page that calls this hook gets its own independent
-// toast queue, driven purely by useState/useCallback.
+
 export function useToast() {
   const [toasts, setToasts] = useState([]);
   const timers = useRef({});
