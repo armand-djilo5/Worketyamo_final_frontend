@@ -74,7 +74,7 @@ export default function AdminSidebar({ admin, onClose }) {
       <div className="mt-auto flex flex-col gap-3 border-t border-ink-900/5 pt-4">
         {admin && (
           <div className="flex items-center gap-2.5 px-2">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-forest-600 text-sm font-semibold text-white">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-semibold text-white">
               {admin.email?.[0]?.toUpperCase() ?? "A"}
             </div>
             <div className="min-w-0">

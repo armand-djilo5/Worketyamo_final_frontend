@@ -113,7 +113,7 @@ export default function DashboardPage() {
                         <tr key={r.id} className="border-t border-ink-900/5">
                           <td className="py-3">
                             <div className="flex items-center gap-2.5">
-                              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-600 text-xs font-semibold text-white">
+                              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-600 text-xs font-semibold text-white">
                                 {initialsFromName(r.fullName)}
                               </div>
                               <span className="font-medium text-ink-900">{r.fullName}</span>

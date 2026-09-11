@@ -12,7 +12,7 @@ export default function AdminTopbar({ title, subtitle, onMenuClick }) {
           <Menu className="h-5 w-5" />
         </button>
         <div>
-          <h1 className="text-xl font-bold text-ink-900 sm:text-2xl">{title}</h1>
+          <h1 className="text-xl font-bold text-blue-600 sm:text-2xl">{title}</h1>
           {subtitle && <p className="mt-0.5 text-sm text-ink-500">{subtitle}</p>}
         </div>
       </div>

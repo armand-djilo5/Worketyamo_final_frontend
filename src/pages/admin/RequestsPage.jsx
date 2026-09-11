@@ -226,7 +226,7 @@ export default function RequestsPage() {
                         >
                           <td className="px-4 py-3.5">
                             <div className="flex items-center gap-2.5">
-                              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-600 text-xs font-semibold text-white">
+                              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-600 text-xs font-semibold text-white">
                                 {initialsFromName(r.fullName)}
                               </div>
                               <div className="min-w-0">
@@ -291,7 +291,7 @@ export default function RequestsPage() {
             ) : (
               <div className="animate-fade-in-up sticky top-24 rounded-2xl border border-ink-900/5 bg-white p-5 shadow-sm shadow-ink-900/3">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-forest-600 text-sm font-semibold text-white">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-semibold text-white">
                     {initialsFromName(selected.fullName)}
                   </div>
                   <div className="min-w-0">
