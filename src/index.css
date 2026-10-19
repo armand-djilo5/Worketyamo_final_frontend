@@ -74,10 +74,19 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    min-height: 100%;
   }
   body {
     @apply bg-white text-ink-900 antialiased;
     font-family: var(--font-sans);
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
   ::selection {
     @apply bg-amber-brand-200 text-ink-900;
