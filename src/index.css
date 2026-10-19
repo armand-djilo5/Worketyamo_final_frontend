@@ -74,7 +74,9 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    min-height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
   body {
     @apply bg-white text-ink-900 antialiased;

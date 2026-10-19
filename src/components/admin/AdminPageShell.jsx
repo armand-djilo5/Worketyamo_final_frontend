@@ -6,7 +6,7 @@ export default function AdminPageShell({ title, subtitle, admin, children }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-cream-200">
+    <div className="flex min-h-dvh bg-cream-200">
       <div className="hidden lg:block">
         <AdminSidebar admin={admin} />
       </div>

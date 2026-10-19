@@ -57,7 +57,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-amber-brand-500 px-4 py-12">
+    <div className="flex min-h-dvh items-center justify-center bg-amber-brand-500 px-4 py-12">
       <div className="w-full max-w-sm">
         <div className="animate-fade-in-up text-center">
           <h1 className="font-poppins text-3xl font-extrabold text-white">Worketyamo</h1>

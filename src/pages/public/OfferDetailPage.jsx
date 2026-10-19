@@ -48,7 +48,7 @@ export default function OfferDetailPage() {
 
   if (loading) {
     return (
-      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="w-full px-4 py-10 sm:px-6 lg:px-8">
         <Spinner label="Chargement de l'offre..." full />
       </div>
     );
@@ -56,7 +56,7 @@ export default function OfferDetailPage() {
 
   if (error || !offer) {
     return (
-      <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="w-full px-4 py-16 sm:px-6 lg:px-8">
         <EmptyState
           icon={error === "server" ? ServerCrash : Info}
           title={error === "server" ? "Une erreur est survenue" : "Offre introuvable"}
@@ -80,7 +80,7 @@ export default function OfferDetailPage() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+    <div className="w-full px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
       <div className="animate-fade-in flex items-center justify-between text-sm">
         <Link
           to="/"
