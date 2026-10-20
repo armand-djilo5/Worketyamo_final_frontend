@@ -133,7 +133,7 @@ export default function ApplyPage() {
   return (
     <div className="min-h-screen">
       <header className="border-b border-ink-900/5 bg-cream-100">
-        <div className="mx-auto flex max-w-2xl items-center justify-between px-4 py-4 sm:px-6">
+        <div className="mx-auto flex w-full max-w-2xl items-center justify-between px-4 py-4 sm:px-6 lg:max-w-[75vw]">
           <span className="font-poppins text-lg font-extrabold ">
             <b className="text-blue-600">Worket</b> <b className="text-orange-600">Yamo</b>
           </span>
@@ -149,7 +149,7 @@ export default function ApplyPage() {
 
       <form
         onSubmit={handleSubmit}
-        className="mx-auto max-w-2xl px-4 py-8 sm:px-6"
+        className="mx-auto w-full max-w-2xl px-4 py-8 sm:px-6 lg:max-w-[75vw]"
       >
         <div className="animate-fade-in-up rounded-2xl border border-ink-900/5 bg-white p-6 shadow-sm shadow-ink-900/3">
           <p className="text-xs font-semibold uppercase tracking-wide text-ink-300">
